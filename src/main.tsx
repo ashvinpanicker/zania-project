@@ -4,19 +4,14 @@ import App from "./App.tsx";
 import "./index.css";
 
 async function startApp() {
-  if (
-    process.env.NODE_ENV === "development" ||
-    process.env.REACT_APP_USE_MSW === "true"
-  ) {
-    const { worker } = await import("./mocks/browser");
-    // Initialize MSW
-    await worker.start({
-      onUnhandledRequest: "bypass",
-      serviceWorker: {
-        url: "/mockServiceWorker.js",
-      },
-    });
-  }
+  const { worker } = await import("./mocks/browser");
+  // Initialize MSW
+  await worker.start({
+    onUnhandledRequest: "bypass",
+    serviceWorker: {
+      url: "/mockServiceWorker.js",
+    },
+  });
 
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
