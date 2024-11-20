@@ -1,4 +1,4 @@
-# Zania-project
+# Zania-project (Frontend Focused)
 
 A document management interface with drag-and-drop functionality and image previews (and Cat GIFS!).
 
